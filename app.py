@@ -18,14 +18,17 @@ def show_board():
 
 @app.route('/check-word', methods=['POST'])
 def check_word():
+    """ Checks if word is Valid or just Not on Board """
     board = session['board']
     word = request.get_json()['guess']
     result = boggle_game.check_valid_word(board, word)
     return jsonify(result=result)
 
 
-@app.route('/get-stats')
+@app.route('/get-stats', methods=['POST'])
 def get_stats():
-    final_score = request.json
-
-    return jsonify(score=final_score)
+    """ Checks for new high score and tracks times played """
+    score = request.json['score']
+    session['high-score'] = score
+    high_score = session['high-score']
+    return jsonify(high_score=high_score)

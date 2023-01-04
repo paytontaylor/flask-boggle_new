@@ -10,8 +10,10 @@
   <body>
     <div class="container"> 
         <h1 class="text-center">Boggle</h1>
-        <h3 id="showTimer" class="text-center text-danger">Time Remaining: </h5>
-        <h4 class="text-center">Score: <p id="score">0</p></h4>
+        <h3 id="showTimer" class="text-center text-danger">Time Remaining:
+        </h3>
+        <h4 class="text-center">High Score: {{result}}</h4>
+        <h5 class="text-center">Score: <p id="score">0</p></h5>
         <table class="table">
             <tbody>
                 {% for row in board %}

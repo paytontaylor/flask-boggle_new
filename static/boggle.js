@@ -2,7 +2,6 @@ const $form = $('#form');
 const $showTimer = $('#showTimer');
 let $score = parseInt($('#score').text());
 let seconds = 10;
-let highScore;
 
 const timer = () => {
     let handle = setInterval(() => {
@@ -46,7 +45,7 @@ const checkWord = (res) => {
 
 const sendStats = async (final_score) => {
     // Sends score info to backend
-    let data = await axios.post('/get-stats', {'score': $score})
+    let data = await axios.post('/check-score', {'score': $score})
 }
 
 timer()
